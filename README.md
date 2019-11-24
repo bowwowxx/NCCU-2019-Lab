@@ -16,7 +16,7 @@
 - [01.WatsonAssistant](Lab2/01WatsonAssistant/Assistant.json)
 - [02.WatsonAssistantLineBot](Lab2/02WatsonAssistantLineBot/LinbotV1.json)
 - [02.WatsonAssistantLineBotV2](Lab2/02WatsonAssistantLineBot/LinbotV2.json)
-- [03.WatsonAssistangISSChatbot](Lab2/03WatsonAssistangISSChatbot/ISSChatbot.json)
+- [03.WatsonAssistantISSChatbot](Lab2/03WatsonAssistantISSChatbot/ISSChatbot.json)
 - [04.WatsonSpeechTextDemo](Lab2/04WatsonSpeechTextDemo/SpeechText.json)
 - [05.WatsonPersonalityInsights](Lab2/05WatsonPersonalityInsights/PersonalityInsights.json)
 - [06.WastonDiscovery](Lab2/06WastonDiscovery/Discovery.json)

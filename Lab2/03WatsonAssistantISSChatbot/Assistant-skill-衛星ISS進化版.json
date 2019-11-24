@@ -1,0 +1,207 @@
+{
+  "name": "衛星ISS進化版",
+  "intents": [
+    {
+      "intent": "API",
+      "examples": [
+        {
+          "text": "api"
+        },
+        {
+          "text": "source"
+        }
+      ],
+      "description": "api來源與網站"
+    },
+    {
+      "intent": "打招呼",
+      "examples": [
+        {
+          "text": "hi"
+        },
+        {
+          "text": "hello"
+        },
+        {
+          "text": "早"
+        },
+        {
+          "text": "你好"
+        }
+      ],
+      "description": "開場白"
+    },
+    {
+      "intent": "ISS",
+      "examples": [
+        {
+          "text": "ISS是什麼"
+        },
+        {
+          "text": "這是什麼"
+        },
+        {
+          "text": "網站"
+        },
+        {
+          "text": "API"
+        }
+      ],
+      "description": "ISS相關訊息"
+    },
+    {
+      "intent": "動作",
+      "examples": [
+        {
+          "text": "在那"
+        },
+        {
+          "text": "where"
+        }
+      ],
+      "description": "詢關相關動作"
+    }
+  ],
+  "entities": [],
+  "language": "zh-tw",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2018-09-20"
+    }
+  },
+  "skill_id": "1c104c48-58ed-4c49-826b-24bf5bde494c",
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "source",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "NASA-> https://spaceflight.nasa.gov/realdata/sightings/SSapplications/Post/JavaSSOP/orbit/ISS/SVPOST.html"
+              },
+              {
+                "text": "Open-Notify-API -> http://open-notify.org/Open-Notify-API/ISS-Location-Now/"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#API",
+      "dialog_node": "node_2_1574451418349",
+      "previous_sibling": "node_8_1574446305567"
+    },
+    {
+      "type": "standard",
+      "title": "動作",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "我呼叫他一下!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#動作",
+      "dialog_node": "node_8_1574446305567",
+      "previous_sibling": "node_8_1574446136028"
+    },
+    {
+      "type": "standard",
+      "title": "說明訊息",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "國際空間站（ISS）是在低地球軌道（約400公里）內可居住的人造衛星。它在任何時間都可以搭載3至6名宇航員，並作為微重力和空間環境研究實驗室。"
+              },
+              {
+                "text": "這是一個國際空間站（ISS）的追蹤器"
+              },
+              {
+                "text": "我是jarvis"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#ISS",
+      "dialog_node": "node_8_1574446136028",
+      "previous_sibling": "歡迎"
+    },
+    {
+      "type": "standard",
+      "title": "其他事情",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "我不瞭解您的問題。您可以換種方式說明"
+              },
+              {
+                "text": "您可以換種方式說明嗎？我不瞭解您的問題"
+              },
+              {
+                "text": "我不明白您的意思"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "其他事情",
+      "previous_sibling": "node_2_1574451418349",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "歡迎",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "您好，有什麼能為您服務的地方？"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#打招呼",
+      "dialog_node": "歡迎"
+    }
+  ],
+  "workspace_id": "1c104c48-58ed-4c49-826b-24bf5bde494c",
+  "counterexamples": [],
+  "system_settings": {
+    "tooling": {
+      "store_generic_responses": true
+    },
+    "disambiguation": {
+      "prompt": "你是说",
+      "none_of_the_above_prompt": "上述任何一种"
+    },
+    "human_agent_assist": {
+      "prompt": "你是说"
+    }
+  },
+  "learning_opt_out": false,
+  "status": "Available"
+}
