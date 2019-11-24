@@ -1,6 +1,6 @@
 # NCCU-2019-Lab  
 
-*In the list below, you can select Lab1 services and see how these can be implemented in Node-RED*
+*In the list below, you can select Lab1、Lab2 services and see how these can be implemented in Node-RED*
 
 ## Lab1
 
