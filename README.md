@@ -12,4 +12,12 @@
 - [06.ISS](Lab1/06ISS/ISS.json)
 
 ## Lab2
-...
+
+- [01.WatsonAssistant](Lab2/01WatsonAssistant/Assistant.json)
+- [02.WatsonAssistantLineBot](Lab2/02WatsonAssistantLineBot/LinbotV1.json)
+- [02.WatsonAssistantLineBotV2](Lab2/02WatsonAssistantLineBot/LinbotV2.json)
+- [03.WatsonAssistangISSChatbot](Lab2/03WatsonAssistangISSChatbot/ISSChatbot.json)
+- [04.WatsonSpeechTextDemo](Lab2/04WatsonSpeechTextDemo/SpeechText.json)
+- [05.WatsonPersonalityInsights](Lab2/05WatsonPersonalityInsights/PersonalityInsights.json)
+- [06.WastonDiscovery](Lab2/06WastonDiscovery/Discovery.json)
+- [07.台北市資料大平台即時雨量API](Lab2/07台北市資料大平台即時雨量API/Rain.json)
