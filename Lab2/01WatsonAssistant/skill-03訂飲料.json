@@ -1,0 +1,455 @@
+{
+  "name": "03訂飲料",
+  "intents": [
+    {
+      "intent": "商品",
+      "examples": [
+        {
+          "text": "飲料"
+        }
+      ],
+      "description": "商品"
+    },
+    {
+      "intent": "byebye",
+      "examples": [
+        {
+          "text": "再見"
+        },
+        {
+          "text": "88"
+        },
+        {
+          "text": "8"
+        },
+        {
+          "text": "快滾"
+        },
+        {
+          "text": "滾"
+        }
+      ],
+      "description": "再見用"
+    },
+    {
+      "intent": "店家資料",
+      "examples": [
+        {
+          "text": "地址"
+        },
+        {
+          "text": "在那"
+        },
+        {
+          "text": "電話"
+        },
+        {
+          "text": "住址"
+        }
+      ],
+      "description": "電話地址"
+    },
+    {
+      "intent": "hello",
+      "examples": [
+        {
+          "text": "HI"
+        },
+        {
+          "text": "hello"
+        },
+        {
+          "text": "你好"
+        },
+        {
+          "text": "有人嗎"
+        },
+        {
+          "text": "安安"
+        }
+      ],
+      "description": "打招呼用"
+    },
+    {
+      "intent": "菜單類",
+      "examples": [
+        {
+          "text": "飲料"
+        },
+        {
+          "text": "我要點東西"
+        },
+        {
+          "text": "給我"
+        },
+        {
+          "text": "我要看菜單"
+        }
+      ],
+      "description": "菜單對話"
+    }
+  ],
+  "entities": [
+    {
+      "entity": "冰塊",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "去冰",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "全冰",
+          "synonyms": [
+            "正常冰"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "微冰",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "少冰",
+          "synonyms": []
+        }
+      ]
+    },
+    {
+      "entity": "飲料名稱",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "四季春+珍波椰",
+          "synonyms": [
+            "1號",
+            "四季春珍波椰"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "珍珠奶茶",
+          "synonyms": [
+            "2號",
+            "珍奶"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "黃金烏龍",
+          "synonyms": [
+            "3號",
+            "烏龍"
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "甜度",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "微糖",
+          "synonyms": [
+            "3分糖",
+            "1/3糖"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "無糖",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "少糖",
+          "synonyms": [
+            "7分糖"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "半糖",
+          "synonyms": [
+            "5分糖"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "全糖",
+          "synonyms": [
+            "正常糖"
+          ]
+        }
+      ]
+    }
+  ],
+  "language": "zh-tw",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2018-09-20"
+    }
+  },
+  "skill_id": "333db4db-2db7-4071-8aad-869064187511",
+  "webhooks": [
+    {
+      "url": "",
+      "name": "main_webhook",
+      "headers": []
+    }
+  ],
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "台北政大店在文山區指南路二段63號，電話是86617571"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#店家資料",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_4_1573372398377",
+      "previous_sibling": "node_4_1573371482746"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "請告訴我您要點的飲料"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "!@飲料名稱",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_3_1573408055662",
+      "previous_sibling": "node_4_1573408168847"
+    },
+    {
+      "type": "standard",
+      "title": "其他事情",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "我不瞭解您的問題。您可以換種方式說明"
+              },
+              {
+                "text": "您可以換種方式說明嗎？我不瞭解您的問題"
+              },
+              {
+                "text": "我不明白您的意思"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "digress_in": "does_not_return",
+      "dialog_node": "其他事情",
+      "previous_sibling": "node_3_1573408055662"
+    },
+    {
+      "type": "standard",
+      "title": "普通版飲料回答",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "你點的飲料是 <?entities[\"飲料名稱\"][0].value?> \b[<?entities[\"甜度\"][0].value?><?entities[\"冰塊\"][0].value?>]"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "@飲料名稱 && @甜度 && @冰塊",
+      "dialog_node": "node_5_1574394927836",
+      "previous_sibling": "node_9_1573372517274"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "請問甜度?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "@飲料名稱 && @冰塊",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_2_1573407970878",
+      "previous_sibling": "node_7_1573407600408"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<?entities[\"飲料名稱\"][0].value?><?entities[\"冰塊\"][0].value?><?entities[\"甜度\"][0].value?>"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "@飲料名稱 && @甜度 && @冰塊",
+      "dialog_node": "node_7_1573407600408",
+      "previous_sibling": "node_5_1574394927836"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "謝謝惠顧！"
+              },
+              {
+                "text": "樓主一生平安!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#byebye",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_9_1573372517274",
+      "previous_sibling": "node_4_1573372398377"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "安安，你好!"
+              },
+              {
+                "text": "嗨！請問你要來些什麼?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#hello",
+      "dialog_node": "node_4_1573371482746",
+      "previous_sibling": "歡迎"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "請問冰塊?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "@飲料名稱 && @甜度",
+      "dialog_node": "node_1_1573407922067",
+      "previous_sibling": "node_2_1573407970878"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "請問甜度冰塊?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "@飲料名稱",
+      "dialog_node": "node_4_1573408168847",
+      "previous_sibling": "node_1_1573407922067"
+    },
+    {
+      "type": "standard",
+      "title": "歡迎",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "您好，歡迎光臨50嵐，請問要喝什麼？"
+              },
+              {
+                "text": "你好，今天50嵐大降價喔，請問要喝什麼？"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "歡迎"
+    }
+  ],
+  "workspace_id": "333db4db-2db7-4071-8aad-869064187511",
+  "counterexamples": [],
+  "system_settings": {
+    "tooling": {
+      "store_generic_responses": true
+    },
+    "disambiguation": {
+      "prompt": "你是说",
+      "enabled": false,
+      "randomize": true,
+      "none_of_the_above_prompt": "上述任何一种"
+    },
+    "human_agent_assist": {
+      "prompt": "你是说"
+    }
+  },
+  "learning_opt_out": false,
+  "status": "Available"
+}
